@@ -33,9 +33,9 @@
 .profile-username {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #38bdf8;
-    /* Soft blue */
-}
+    color: #c9c9cd;
+
+    }
 
 .profile-email {
     font-size: 1rem;
