@@ -1,18 +1,21 @@
 /* Background and Section */
-.analyticsSection {
-    padding: 24px;
-    background-color: transparent;
-    height: 100dvh;
-    /* 100% of the dynamic viewport height */
-    overflow-y: auto;
-    padding-bottom: 50px;
-    /* Optional: ensure space at the bottom */
+
+.fullWindow {
+    padding: 20px;
+
+    min-height: 100vh;
+    box-sizing: border-box;
 }
+.mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 
 /* Ensure it fills the entire screen */
 .background {
-    display: flex;
-    flex-direction: column;
+
     align-items: center;
     /* Center all child elements horizontally */
     justify-content: flex-start;
@@ -24,12 +27,7 @@
 }
 
 /* Content inside background will be scrollable */
-.background>.analyticsSection {
-    overflow-y: auto;
-    /* Enable scrolling within the section */
-    max-height: calc(100vh - 400px);
-    /* Adjust to avoid overflowing */
-}
+
 
 iframe {
     width: 100%;
@@ -40,6 +38,18 @@ iframe {
     margin: 0 auto;
     /* Centers the iframe */
     display: block;
+}
+
+.analyticsSection {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    height: 100dvh;
+    /* 100% of the dynamic viewport height */
+    overflow-y: auto;
+    padding-bottom: 50px;
+    /* Optional: ensure space at the bottom */
 }
 
 /* Styling for PDF and CSV buttons */
@@ -58,7 +68,20 @@ button[type="csv"] {
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
-
+button[type="transaction"] {
+    background-color: #001e30;
+    /* Darker gray for button */
+    color: #ffffff;
+    /* White text color */
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 /* Title of Analytics */
 .analyticsTitle {
     font-size: 1.75rem;
@@ -71,10 +94,8 @@ button[type="csv"] {
 /* Grid layout for the charts */
 .chartGrid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    width: 100%;
-    /* Ensure it takes full width */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 /* Styling for each individual chart box */
@@ -90,17 +111,9 @@ button[type="csv"] {
     margin-bottom: 24px;
     /* Add spacing between chart boxes */
 }
-
-/* Styling for button container */
-.buttonContainer {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-top: 16px;
-}
-
 /* Chart container styling */
 .chartContainer {
+    
     background-color: #33363c;
     /* Darker gray background for chart container */
     padding: 16px;
@@ -123,6 +136,15 @@ button[type="csv"] {
     /* Border color for charts */
 }
 
+/* Styling for button container */
+.buttonContainer {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+
 /* Responsive adjustments for smaller devices */
 @media (max-width: 480px) {
     .analyticsTitle {
@@ -139,15 +161,17 @@ button[type="csv"] {
 }
 
 /* Responsive Grid layout - Adjust for left to right arrangement */
-@media (min-width: 768px) {
-    .chartGrid {
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        /* Auto-fill the available space with a dynamic number of columns */
-        gap: 32px;
+@media (max-width: 768px) {
+    .analyticsTitle {
+        font-size: 1.5rem;
     }
 
-    .chartBox {
-        /* Ensure the chart boxes take the necessary space */
-        width: 100%;
+    .chartTitle {
+        font-size: 1rem;
+    }
+
+    .buttonContainer {
+        flex-direction: column;
+        align-items: center;
     }
 }
