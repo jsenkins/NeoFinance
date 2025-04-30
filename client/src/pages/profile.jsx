@@ -44,6 +44,7 @@ const Profile = () => {
 
                
 
+                {/* New Buttons */}
                 <button className="nav-button" onClick={() => navigate('/bills')}>
                     View Bills Due
                 </button>

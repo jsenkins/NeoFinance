@@ -1,0 +1,497 @@
+/*basics.css */
+/* 
+#33363c
+#c9c9cd
+#8a8b92
+#a2a5aa
+#62636b
+#72757c
+#52565d
+#aca4ac
+
+
+
+#001e30
+#277278
+#0c3e43
+#e2e9ea
+*/
+* {
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(182, 187, 219, 0.2);
+    color: #b6bbdb;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #b6bbdb;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: transparent;
+    color: rgb(5, 18, 45);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:active {
+    background-color: #a5adc8;
+    transform: scale(0.98);
+}
+
+body {
+    background-color: rgb(5, 18, 45);
+
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    overflow: auto;
+}
+/* Ensure the entire page uses the background color */
+html,
+body {
+    height: 100%;
+    min-height: 100vh;
+    /* Make sure it stretches the full height even if content is small */
+}
+h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #222;
+    color: white;
+    font-size: 1em;
+}
+
+input:focus {
+    outline: none;
+    border-color: #d4ff00;
+}
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color:transparent;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #b6bbdb;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    text-decoration: underline;
+  
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+}
+.back-button:hover {
+    color: #a0b9d4ae;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #c5d6e6;
+    color: rgb(8, 3, 22);
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, filter 0.3s ease;
+
+
+}
+
+button:hover {
+    filter: brightness(1.5);
+    border-radius: 10%;
+    border-color: #222;
+
+}
+button:active {
+    background-color: #994d00;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Adjust the width of the scrollbar */
+    height: 6px;
+    /* Adjust the height of the scrollbar (for horizontal scroll) */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #62636b;
+    /* Light color for the scrollbar thumb */
+    border-radius: 10px;
+    /* Rounded corners for the thumb */
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #b6bbdb;
+    /* Change thumb color on hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #222;
+    /* Dark background for the track */
+    border-radius: 10px;
+}
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    /* full viewport width */
+    background: linear-gradient(90deg, #a2a5aa 0%, #d1d4d8 100%);    color: #0c3e43;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    /* you can adjust */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: row
+}
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Make it a circle */
+    object-fit: cover;
+    /* Ensure the image fits nicely */
+}
+.logout-link {
+    background-color: #001e30;
+        /* Darker gray for button */
+        color: #ffffff;
+        /* White text color */
+        padding: 1px 5px;
+        margin-left: 20px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+}
+.profile-link {
+    background-color: #001e30;
+    /* Darker gray for button */
+    color: #ffffff;
+    /* White text color */
+    padding: 1px 5px;
+    margin-left: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-ExtraBoldItalic.eot');
+    src: local('Plethora ExtraBold Italic'), local('Plethora-ExtraBoldItalic'),
+        url('Plethora-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-ExtraBoldItalic.woff2') format('woff2'),
+        url('Plethora-ExtraBoldItalic.woff') format('woff'),
+        url('Plethora-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Bold.eot');
+    src: local('Plethora Bold'), local('Plethora-Bold'),
+        url('Plethora-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Bold.woff2') format('woff2'),
+        url('Plethora-Bold.woff') format('woff'),
+        url('Plethora-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Black.eot');
+    src: local('Plethora Black'), local('Plethora-Black'),
+        url('Plethora-Black.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Black.woff2') format('woff2'),
+        url('Plethora-Black.woff') format('woff'),
+        url('Plethora-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-BlackItalic.eot');
+    src: local('Plethora Black Italic'), local('Plethora-BlackItalic'),
+        url('Plethora-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-BlackItalic.woff2') format('woff2'),
+        url('Plethora-BlackItalic.woff') format('woff'),
+        url('Plethora-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-BoldItalic.eot');
+    src: local('Plethora Bold Italic'), local('Plethora-BoldItalic'),
+        url('Plethora-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-BoldItalic.woff2') format('woff2'),
+        url('Plethora-BoldItalic.woff') format('woff'),
+        url('Plethora-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-ExtraBold.eot');
+    src: local('Plethora ExtraBold'), local('Plethora-ExtraBold'),
+        url('Plethora-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-ExtraBold.woff2') format('woff2'),
+        url('Plethora-ExtraBold.woff') format('woff'),
+        url('Plethora-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-ThinItalic.eot');
+    src: local('Plethora Thin Italic'), local('Plethora-ThinItalic'),
+        url('Plethora-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-ThinItalic.woff2') format('woff2'),
+        url('Plethora-ThinItalic.woff') format('woff'),
+        url('Plethora-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Light.eot');
+    src: local('Plethora Light'), local('Plethora-Light'),
+        url('Plethora-Light.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Light.woff2') format('woff2'),
+        url('Plethora-Light.woff') format('woff'),
+        url('Plethora-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Thin.eot');
+    src: local('Plethora Thin'), local('Plethora-Thin'),
+        url('Plethora-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Thin.woff2') format('woff2'),
+        url('Plethora-Thin.woff') format('woff'),
+        url('Plethora-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-SemiBold.eot');
+    src: local('Plethora SemiBold'), local('Plethora-SemiBold'),
+        url('Plethora-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-SemiBold.woff2') format('woff2'),
+        url('Plethora-SemiBold.woff') format('woff'),
+        url('Plethora-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-ExtraLight.eot');
+    src: local('Plethora ExtraLight'), local('Plethora-ExtraLight'),
+        url('Plethora-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-ExtraLight.woff2') format('woff2'),
+        url('Plethora-ExtraLight.woff') format('woff'),
+        url('Plethora-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Italic.eot');
+    src: local('Plethora Italic'), local('Plethora-Italic'),
+        url('Plethora-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Italic.woff2') format('woff2'),
+        url('Plethora-Italic.woff') format('woff'),
+        url('Plethora-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Medium.eot');
+    src: local('Plethora Medium'), local('Plethora-Medium'),
+        url('Plethora-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Medium.woff2') format('woff2'),
+        url('Plethora-Medium.woff') format('woff'),
+        url('Plethora-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-SemiBoldItalic.eot');
+    src: local('Plethora SemiBold Italic'), local('Plethora-SemiBoldItalic'),
+        url('Plethora-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-SemiBoldItalic.woff2') format('woff2'),
+        url('Plethora-SemiBoldItalic.woff') format('woff'),
+        url('Plethora-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-Regular.eot');
+    src: local('Plethora Regular'), local('Plethora-Regular'),
+        url('Plethora-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-Regular.woff2') format('woff2'),
+        url('Plethora-Regular.woff') format('woff'),
+        url('Plethora-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-ExtraLightItalic.eot');
+    src: local('Plethora ExtraLight Italic'), local('Plethora-ExtraLightItalic'),
+        url('Plethora-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-ExtraLightItalic.woff2') format('woff2'),
+        url('Plethora-ExtraLightItalic.woff') format('woff'),
+        url('Plethora-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-MediumItalic.eot');
+    src: local('Plethora Medium Italic'), local('Plethora-MediumItalic'),
+        url('Plethora-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-MediumItalic.woff2') format('woff2'),
+        url('Plethora-MediumItalic.woff') format('woff'),
+        url('Plethora-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plethora';
+    src: url('Plethora-LightItalic.eot');
+    src: local('Plethora Light Italic'), local('Plethora-LightItalic'),
+        url('Plethora-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Plethora-LightItalic.woff2') format('woff2'),
+        url('Plethora-LightItalic.woff') format('woff'),
+        url('Plethora-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
