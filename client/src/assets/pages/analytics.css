@@ -1,0 +1,153 @@
+/* Background and Section */
+.analyticsSection {
+    padding: 24px;
+    background-color: transparent;
+    height: 100dvh;
+    /* 100% of the dynamic viewport height */
+    overflow-y: auto;
+    padding-bottom: 50px;
+    /* Optional: ensure space at the bottom */
+}
+
+/* Ensure it fills the entire screen */
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center all child elements horizontally */
+    justify-content: flex-start;
+    /* Align elements starting from top */
+    width: 100dvw;
+    /* Make sure it's the full width */
+    overflow: hidden;
+    /* Prevent scrolling here */
+}
+
+/* Content inside background will be scrollable */
+.background>.analyticsSection {
+    overflow-y: auto;
+    /* Enable scrolling within the section */
+    max-height: calc(100vh - 400px);
+    /* Adjust to avoid overflowing */
+}
+
+iframe {
+    width: 100%;
+    max-width: 600px;
+    /* Limit the maximum width */
+    height: 152px;
+    border-radius: 12px;
+    margin: 0 auto;
+    /* Centers the iframe */
+    display: block;
+}
+
+/* Styling for PDF and CSV buttons */
+button[type="pdf"],
+button[type="csv"] {
+    background-color: #001e30;
+    /* Darker gray for button */
+    color: #ffffff;
+    /* White text color */
+    padding: 12px 24px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Title of Analytics */
+.analyticsTitle {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #c9c9cd;
+    /* Light gray color for text */
+}
+
+/* Grid layout for the charts */
+.chartGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+    /* Ensure it takes full width */
+}
+
+/* Styling for each individual chart box */
+.chartBox {
+    background-color: #44484f;
+    /* Darker background for chart box */
+    padding: 16px;
+    max-width: 500px;
+    min-width: 100px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    margin-bottom: 24px;
+    /* Add spacing between chart boxes */
+}
+
+/* Styling for button container */
+.buttonContainer {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+/* Chart container styling */
+.chartContainer {
+    background-color: #33363c;
+    /* Darker gray background for chart container */
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Chart Title */
+.chartTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e2e9ea;
+    /* Light off-white color for titles */
+    margin-bottom: 12px;
+}
+
+/* For line and pie chart borders and other minor details */
+.chartjs-render-monitor {
+    border-color: #72757c;
+    /* Border color for charts */
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 480px) {
+    .analyticsTitle {
+        font-size: 1.5rem;
+    }
+
+    .chartTitle {
+        font-size: 1.1rem;
+    }
+
+    .chartBox {
+        margin-bottom: 16px;
+    }
+}
+
+/* Responsive Grid layout - Adjust for left to right arrangement */
+@media (min-width: 768px) {
+    .chartGrid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        /* Auto-fill the available space with a dynamic number of columns */
+        gap: 32px;
+    }
+
+    .chartBox {
+        /* Ensure the chart boxes take the necessary space */
+        width: 100%;
+    }
+}
