@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // <-- Import navigation hook
 import './Profile.css';
 import './basics.css'; // Common styles
-import pfpImage from '../assets/components/pfp.jpg'; // Importing the profile picture
-import Header from '../assets/components/header';
+import pfpImage from '../assets/pfp.jpg'; // Importing the profile picture
+
+
 
 const Profile = () => {
     const navigate = useNavigate(); // Initialize navigate
@@ -19,39 +20,44 @@ const Profile = () => {
 
     return (
         <div className='fullWindow'>
-            <Header username='javeria' />
-        <div className="profile-page">
-            <div className="profile-card">
+            
+            <div className="profile-page">
+                <div className="profile-card">
                     <img src={user.profilePicture} alt="Profile" className="profile-pic" />
                     <button className='edit-button'>Edit Profile</button>
-                <h2 className="profile-username">{user.username}</h2>
-                <p className="profile-email">{user.email}</p>
+                    <button className='edit-button' onClick={() => navigate('/login')} >Logout</button>
 
-                <div className="profile-details">
-                    <div className="detail">
-                        <span className="detail-label">Joined:</span>
-                        <span>{user.joinDate}</span>
+                    <h2 className="profile-username">{user.username}</h2>
+                    <p className="profile-email">{user.email}</p>
+
+                    <div className="profile-details">
+                        <div className="detail">
+                            <span className="detail-label">Joined:</span>
+                            <span>{user.joinDate}</span>
+                        </div>
+                        <div className="detail">
+                            <span className="detail-label">Total Income:</span>
+                            <span>${user.totalIncome}</span>
+                        </div>
+                        <div className="detail">
+                            <span className="detail-label">Total Expenses:</span>
+                            <span>${user.totalExpenses}</span>
+                        </div>
                     </div>
-                    <div className="detail">
-                        <span className="detail-label">Total Income:</span>
-                        <span>${user.totalIncome}</span>
-                    </div>
-                    <div className="detail">
-                        <span className="detail-label">Total Expenses:</span>
-                        <span>${user.totalExpenses}</span>
-                    </div>
+
+
+
+                    {/* New Buttons */}
+                    <button className="nav-button" onClick={() => navigate('/bills')}>
+                        View Bills Due
+                    </button>
+                    <button className="nav-button" onClick={() => navigate('/analytics')}>
+                        View Financial Analytics
+                    </button>
+                    <button className="nav-button" onClick={() => navigate('/budgeting')}>
+                        Go to budgeting
+                    </button>
                 </div>
-
-               
-
-                {/* New Buttons */}
-                <button className="nav-button" onClick={() => navigate('/bills')}>
-                    View Bills Due
-                </button>
-                <button className="nav-button" onClick={() => navigate('/analytics')}>
-                    View Financial Analytics
-                </button>
-            </div>
             </div>
         </div>
     );
