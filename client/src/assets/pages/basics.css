@@ -137,17 +137,18 @@ input:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #c5d6e6;
-    color: rgb(8, 3, 22);
-    font-size: 1.2em;
+button  {
+padding: 10px 20px;
+    background-color: #d7e7d7;
+    color: rgb(0, 0, 0);
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, filter 0.3s ease;
-
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: 100%;
 
 }
 
@@ -200,64 +201,109 @@ p {
     /* Dark background for the track */
     border-radius: 10px;
 }
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* Initially hidden off-screen */
+    width: 200px;
+    height: 100%;
+    background-color: #001e30;
+    color: #d7e7d7;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+.sidebar-toggle {
+    margin-right: 20px;
+    background-color: #001e30;
+    color: #aca4ac;
+
+}
+
+.sidebar.open {
+    left: 0;
+    
+    /* Sidebar slides in */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar li a:hover {
+    color: #277278;
+}
+
+/* Header Styles */
 .header {
-    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    max-height: 60px;
+    padding: 20px;
+    background-color: #001e30;
+    color: white;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    width: 100vw;
-    /* full viewport width */
-    background: linear-gradient(90deg, #a2a5aa 0%, #d1d4d8 100%);    color: #0c3e43;
     z-index: 1000;
+}
+
+.header-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0px 30px;
-    /* you can adjust */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex-direction: row
 }
-.profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    /* Make it a circle */
-    object-fit: cover;
-    /* Ensure the image fits nicely */
-}
-.logout-link {
-    background-color: #001e30;
-        /* Darker gray for button */
-        color: #ffffff;
-        /* White text color */
-        padding: 1px 5px;
-        margin-left: 20px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-}
-.profile-link {
-    background-color: #001e30;
-    /* Darker gray for button */
-    color: #ffffff;
-    /* White text color */
-    padding: 1px 5px;
-    margin-left: 20px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+
+.menu-button {
+    background: none;
     border: none;
+    color: white;
+    font-size: 24px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+}
 
+.profile-link {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
 
+.profile-image {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.logout-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
 
 
 
