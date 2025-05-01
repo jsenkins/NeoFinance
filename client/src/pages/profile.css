@@ -26,7 +26,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 3px solid #38bdf8;
+    border: 3px solid #52565d;
     /* Light Blue Border */
 }
 
@@ -34,8 +34,8 @@
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: #c9c9cd;
-
-    }
+    /* Soft blue */
+}
 
 .profile-email {
     font-size: 1rem;
