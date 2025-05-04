@@ -1,38 +1,50 @@
-        
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// client/src/App.jsx
 
-import Login from "./pages/login";
-import Register from "./pages/register";
-import Analytics from "./pages/analytics";
-import Profile from "./pages/profile";
-import Bills from "./pages/Bills";
-import DebtData from "./pages/budgeting";
-import Budgeting from "./pages/budgeting";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+import Login        from './pages/Login';
+import Register     from './pages/Register';
+import Sidebar      from './components/Sidebar';
+import Navbar       from './components/Navbar';
+import Dashboard    from './pages/Dashboard';
+import Transactions from './pages/Transactions';
+import Budgets      from './pages/Budgets';
+import Bills        from './pages/Bills';
+import Debts        from './pages/Debts';
+import Credits      from './pages/CreditsPage';
+import Reports      from './pages/Reports';
+import Contact      from './pages/Contact';
+import Layout       from './components/Layout';
 
-function App() {
-  return (
-    <Router>
+export default function App() {
+  const token = useSelector((s) => s.auth.token);
+
+  // If not authenticated, only allow login/register
+  if (!token) {
+    return (
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login"    element={<Login />} />
         <Route path="/register" element={<Register />} />
-
-
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/bills" element={<Bills />} />
-        <Route path="/debtdata" element={<DebtData />} />
-        <Route path="/budgeting" element={<Budgeting />} />
-
-        
-
-
-
-
-
+        <Route path="*"         element={<Navigate to="/login" replace />} />
       </Routes>
-    </Router>
+    );
+  }
+
+  // Authenticated area
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/"             element={<Dashboard />} />
+        <Route path="/transactions" element={<Transactions />} />
+        <Route path="/budgets"      element={<Budgets />} />
+        <Route path="/bills"        element={<Bills />} />
+        <Route path="/debts"        element={<Debts />} />
+        <Route path="/credits"      element={<Credits />} />
+        <Route path="/reports"      element={<Reports />} />
+        <Route path="/contact"      element={<Contact />} />
+        <Route path="*"             element={<Navigate to="/" replace />} />
+      </Routes>
+    </Layout>
   );
 }
-
-export default App;
