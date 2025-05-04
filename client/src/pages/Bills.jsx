@@ -1,69 +1,64 @@
-import { useState } from 'react';
-//import { useDelBillMutation } from '../store/api';
 
-import BillForm from '../assets/components/BillForm';
-import './basics.css'; // Common styles
-import './bills.css';
-
+import { useGetBillsQuery, useDelBillMutation } from '../store/api';
+import { Trash2 } from 'lucide-react';
+import BillForm from '../components/BillForm';
+import './basics.css'
 export default function Bills() {
-  // Hardcoded bills data for now
-  const [bills, setBills] = useState([
-    { _id: '1', name: 'Electricity', amount: 150, dueDate: '2025-05-01' },
-    { _id: '2', name: 'Water', amount: 50, dueDate: '2025-05-10' },
-    { _id: '3', name: 'Internet', amount: 30, dueDate: '2025-05-15' },
-  ]);
-
-  //const [delBill] = useDelBillMutation();
-  const [message, setMessage] = useState(null); // Success/Error messages
-
-  const handleDelete = async (billId) => {
-    try {
-      // Simulate delete operation here, remove from hardcoded data
-      setBills((prevBills) => prevBills.filter((bill) => bill._id !== billId));
-      setMessage({ type: 'success', text: 'Bill deleted successfully!' });
-
-      // You can replace the above with the real mutation call later
-      // await delBill(billId).unwrap();
-    } catch (err) {
-      setMessage({ type: 'error', text: 'Failed to delete bill. Please try again.' });
-      console.error("Failed to delete bill:", err);
-    }
-  };
+  const { data: bills = [], isLoading } = useGetBillsQuery();
+  const [delBill] = useDelBillMutation();
 
   return (
-    <div className='bills-container'>
-      <h2>Your Bills</h2>
-      {/* Uncomment when you want to allow users to add bills */}
-      {/* <BillForm /> */}
+    <div className=" bg-[#68788b]  h-full p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-semibold">Bills</h2>
+      </div>
 
-      {/* Display success/error messages */}
-      {message && (
-        <div className={`alert alert-${message.type}`}>
-          {message.text}
-          <span
-            className="alert-close"
-            onClick={() => setMessage(null)}
-          >
-            &times;
-          </span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-[#e2e9ea] rounded-xl p-6 shadow-sm border border-base-200">
+          <h3 className="text-lg font-semibold mb-6">Add New Bill</h3>
+          <BillForm />
         </div>
-      )}
 
-      <ul className="space-y-2">
-        {bills.map(b => (
-          <li key={b._id} className="flex justify-between items-center">
-            <span>
-              {b.name} — ${b.amount} — due {new Date(b.dueDate).toLocaleDateString()}
-            </span>
-            <button type="delete"
-              onClick={() => handleDelete(b._id)}
-              className="bill-item"
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+        <div className="bg-base-100 rounded-xl p-6 shadow-sm border border-base-200">
+          <h3 className="text-lg font-semibold mb-6">Upcoming Bills</h3>
+          {isLoading ? (
+            <div className="flex items-center justify-center h-[200px]">
+              <span className="loading loading-spinner loading-lg" />
+            </div>
+          ) : bills.length > 0 ? (
+            <div className="space-y-4">
+              {bills.map(bill => (
+                <div
+                  key={bill._id}
+                  className="flex items-center justify-between p-4 bg-base-200 rounded-lg"
+                >
+                  <div>
+                    <h4 className="font-medium">{bill.name}</h4>
+                    <p className="text-sm text-base-content/70">
+                      Due {new Date(bill.dueDate).toLocaleDateString()}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-lg font-semibold">
+                      ${bill.amount.toLocaleString()}
+                    </span>
+                    <button
+                      onClick={() => delBill(bill._id)}
+                      className="btn btn-ghost btn-sm btn-square text-error"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-base-content/50 py-8">
+              No bills added yet
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
